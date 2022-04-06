@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { ClearUserNameAction } from '../../../store/action';
 
-import { GetUserName } from '../../../store/selectors';
+import { GetUserEmail, GetUserName } from '../../../store/selectors';
 import Button from '../Button';
 
 import style from './Header.module.scss';
 
 const Header = () => {
   const name = useSelector(GetUserName);
+  const email = useSelector(GetUserEmail);
   const dispatch = useDispatch();
 
   return (
@@ -46,9 +47,9 @@ const Header = () => {
         </li>
       </ul>
       <div>
-        {name ? (
+        {email ? (
           <div className={style.user_info}>
-            <h2>{name}</h2>
+            <h2>{email}</h2>
             <Button title=" LOG OUT" onClick={() => dispatch(ClearUserNameAction())} />
           </div>
         ) : (

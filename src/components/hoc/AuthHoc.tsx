@@ -4,10 +4,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { GetUserName } from '../../store/selectors';
+import { GetUserEmail, GetUserName } from '../../store/selectors';
 
 const AuthHOC: React.FC = ({ children }) => {
-  const isAuth = useSelector(GetUserName);
+  const isAuth = useSelector(GetUserEmail);
   if (isAuth) {
     return <>{children}</>;
   }

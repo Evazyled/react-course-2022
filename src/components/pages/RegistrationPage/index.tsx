@@ -53,7 +53,6 @@ const RegistrationPage = () => {
   const submitHandler = () => {
     if (validation() && nameAndEmailValidation()) {
       console.log('registration');
-      navigate('/auth');
     }
   };
 

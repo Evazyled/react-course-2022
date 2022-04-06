@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { SetUserPasswordAction, SetUserNameAction } from '../../../store/action';
+import { SetUserPasswordAction, SetUserEmailAction } from '../../../store/action';
 import { GetUserName } from '../../../store/selectors';
 import Button from '../../common/Button';
 import Form from '../../common/Form';
@@ -9,16 +9,16 @@ import Input from '../../common/Form/Input';
 
 const AuthPage = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState({ value: '', error: false });
+  const [email, setEmail] = useState({ value: '', error: false });
   const [password, setPassword] = useState({ value: '', error: false });
   const [hasError, setHasError] = useState(false);
   const submitHandler = () => {
-    if (password.value.length >= 10 && name.value.length > 5) {
+    if (password.value.length >= 10) {
       setHasError(false);
 
-      // dispatch(SetUserNameAction(name.value));
-      // dispatch(SetUserPasswordAction(password.value));
-      console.log({ name, password });
+      dispatch(SetUserEmailAction(email.value));
+      dispatch(SetUserPasswordAction(password.value));
+      console.log({ email, password });
     } else {
       setHasError(true);
       console.log('Error');
@@ -35,7 +35,13 @@ const AuthPage = () => {
 
   return (
     <Form title="Авторизация">
-      <Input title="Name" id="email" placeholder="Введите почту" value={name} setValue={setName} />
+      <Input
+        title="Email"
+        id="email"
+        placeholder="Введите почту"
+        value={email}
+        setValue={setEmail}
+      />
       <Input
         title="Password"
         id="password"

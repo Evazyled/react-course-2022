@@ -2,18 +2,21 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import AuthPage from '../../components/pages/AuthPage';
-import { GetUserName } from '../../store/selectors';
+import { GetUserEmail, GetUserName, GetUserPassword } from '../../store/selectors';
 
 const AuthContainer = () => {
+  const email = useSelector(GetUserEmail);
+  const password = useSelector(GetUserPassword);
   const name = useSelector(GetUserName);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (name) {
+    if (email) {
       navigate('/');
     }
-  }, [name]);
+  }, [email]);
+
   return <AuthPage />;
 };
 
