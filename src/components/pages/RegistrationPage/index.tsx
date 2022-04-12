@@ -9,7 +9,7 @@ import {
   SetUserEmailAction,
   SetUserNameAction,
   SetUserPasswordAction,
-} from '../../../store/action';
+} from '../../../store/auth/action';
 
 const RegistrationPage = () => {
   const dispatch = useDispatch();
@@ -19,15 +19,6 @@ const RegistrationPage = () => {
   const [repeatPassword, setRepeatPassword] = useState({ value: '', error: false });
   const navigate = useNavigate();
 
-  const nameAndEmailValidation = () => {
-    if (name.value && email.value) {
-      setEmail((prev) => ({ ...prev, error: false }));
-      setName((prev) => ({ ...prev, error: false }));
-      dispatch(SetUserNameAction(name.value));
-      dispatch(SetUserEmailAction(email.value));
-    }
-    return true;
-  };
   const validation = () => {
     if (
       // eslint-disable-next-line operator-linebreak
@@ -46,12 +37,18 @@ const RegistrationPage = () => {
     }
     setPassword((prev) => ({ ...prev, error: false }));
     setRepeatPassword((prev) => ({ ...prev, error: false }));
+    setEmail((prev) => ({ ...prev, error: false }));
+    setName((prev) => ({ ...prev, error: false }));
     dispatch(SetUserPasswordAction(password.value));
+
+    dispatch(SetUserNameAction(name.value));
+    dispatch(SetUserEmailAction(email.value));
+    navigate('/auth');
     return true;
   };
 
   const submitHandler = () => {
-    if (validation() && nameAndEmailValidation()) {
+    if (validation()) {
       console.log('registration');
     }
   };

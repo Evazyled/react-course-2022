@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import UserListItem from './UserListItem';
 
 type UserListPropsType = {
-  data: { id: number; name: string; age: string }[];
+  data: { id: number; name: string }[];
 };
 const UserList = ({ data }: UserListPropsType) => {
   const clickHandler = () => {

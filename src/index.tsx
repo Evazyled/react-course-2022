@@ -5,10 +5,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import App from './App';
-import userInfoReducer from './store/reducer';
 
-const store = createStore(userInfoReducer, composeWithDevTools(applyMiddleware()));
+import rootReducer from './store';
+
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>

@@ -4,7 +4,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { GetUserEmail, GetUserName } from '../../store/selectors';
+import { GetUserEmail, GetUserName } from '../../store/auth/selectors';
 
 const AuthHOC: React.FC = ({ children }) => {
   const isAuth = useSelector(GetUserEmail);

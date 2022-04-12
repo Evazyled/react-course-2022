@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { ClearUserNameAction } from '../../../store/action';
+import { ClearUserNameAction } from '../../../store/auth/action';
 
-import { GetUserEmail, GetUserName } from '../../../store/selectors';
+import { GetUserEmail, GetUserName } from '../../../store/auth/selectors';
 import Button from '../Button';
 
 import style from './Header.module.scss';

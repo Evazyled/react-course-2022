@@ -15,33 +15,11 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<PageWrapper />}>
-        <Route
-          index
-          element={
-            <AuthHOC>
-              <h1>MAIN PAGE</h1>
-            </AuthHOC>
-          }
-        />
-        <Route
-          path="users"
-          element={
-            <AuthHOC>
-              <MainContainer />
-            </AuthHOC>
-          }
-        />
+        <Route index element={<h1>MAIN PAGE</h1>} />
+        <Route path="users" element={<MainContainer />} />
         <Route path="users-page" element={<Navigate to="/users" replace />} />
         <Route path="auth" element={<AuthContainer />} />
-        <Route
-          path="users/:name"
-          element={
-            <AuthHOC>
-              {' '}
-              <OneUserContainer />
-            </AuthHOC>
-          }
-        />
+        <Route path="users/:name" element={<OneUserContainer />} />
         <Route path="registration" element={<RegistrationContainer />} />
         <Route path="*" element={<h1>Error 404</h1>} />
       </Route>

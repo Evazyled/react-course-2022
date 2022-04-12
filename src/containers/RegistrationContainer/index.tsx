@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import RegistrationPage from '../../components/pages/RegistrationPage';
-import { GetUserEmail, GetUserName, GetUserPassword } from '../../store/selectors';
+import { GetUserEmail, GetUserName, GetUserPassword } from '../../store/auth/selectors';
 
 const RegistrationContainer = () => {
   const email = useSelector(GetUserEmail);
@@ -15,7 +15,8 @@ const RegistrationContainer = () => {
     if (email) {
       navigate('/auth');
     }
-  }, [email]);
+  }, []);
+
   return <RegistrationPage />;
 };
 

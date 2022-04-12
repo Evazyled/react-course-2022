@@ -6,7 +6,8 @@ type OneUserPagePropsType = {
     | {
         id: number;
         name: string;
-        age: string;
+        status: string;
+        species: string;
       }
     | undefined;
 };
@@ -22,7 +23,8 @@ const OneUserPage = ({ userInfo }: OneUserPagePropsType) => {
     <>
       <h1>User Info</h1>
       <h2>{userInfo?.name}</h2>
-      <h3>{userInfo?.age}</h3>
+      <h3>{userInfo?.status}</h3>
+      <h3>{userInfo?.species}</h3>
       <br />
       <Link to="/users">НА СПИСОК ПОЛЬЗОВАТЕЛЕЙ</Link>
       <br />

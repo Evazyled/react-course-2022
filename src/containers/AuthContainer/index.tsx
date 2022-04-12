@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import AuthPage from '../../components/pages/AuthPage';
-import { GetUserEmail, GetUserName, GetUserPassword } from '../../store/selectors';
+import { GetUserEmail, GetUserName, GetUserPassword } from '../../store/auth/selectors';
 
 const AuthContainer = () => {
   const email = useSelector(GetUserEmail);
@@ -11,11 +11,11 @@ const AuthContainer = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (email) {
-      navigate('/');
-    }
-  }, [email]);
+  // useEffect(() => {
+  //   if (email) {
+  //     navigate('/');
+  //   }
+  // }, [email]);
 
   return <AuthPage />;
 };
