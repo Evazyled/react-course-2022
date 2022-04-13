@@ -8,7 +8,10 @@ import getUsers from '../../store/users/selectors';
 
 const MainContainer = () => {
   const userData = useSelector(getUsers);
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(GetUsersAction());
+  }, []);
   return <MainPage userData={userData} />;
 };
 
