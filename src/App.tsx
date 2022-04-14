@@ -19,7 +19,7 @@ const App = () => {
         <Route path="users" element={<MainContainer />} />
         <Route path="users-page" element={<Navigate to="/users" replace />} />
         <Route path="auth" element={<AuthContainer />} />
-        <Route path="users/:name" element={<OneUserContainer />} />
+        <Route path="users/:id" element={<OneUserContainer />} />
         <Route path="registration" element={<RegistrationContainer />} />
         <Route path="*" element={<h1>Error 404</h1>} />
       </Route>

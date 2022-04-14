@@ -10,7 +10,7 @@ const OneUserContainer = () => {
   const { id } = useParams();
   useEffect(() => {
     dispatch(GetOneUserAction(id));
-  }, [id]);
+  }, []);
 
   const user = useSelector(getOneUser);
 
