@@ -21,7 +21,7 @@ const UserList = ({ data }: UserListPropsType) => {
   return (
     <ul>
       {data.map((el) => (
-        <UserListItem key={el.id} name={el.name} />
+        <UserListItem key={el.id} name={el.name} id={el.id} />
       ))}
     </ul>
   );

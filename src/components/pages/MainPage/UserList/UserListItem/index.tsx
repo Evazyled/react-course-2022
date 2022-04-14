@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 type UserListItemPropsType = {
   name: string;
+  id: number;
 };
 
-const UserListItem = ({ name }: UserListItemPropsType) => {
+const UserListItem = ({ name, id }: UserListItemPropsType) => {
   useEffect(() => console.log('USER_LIST_ITEM - MOUNT'), []);
   return (
-    <Link to={name}>
+    <Link to={`${id}`}>
       <li>
         <h3>{name}</h3>
       </li>

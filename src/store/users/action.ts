@@ -1,7 +1,8 @@
+import { Dispatch } from 'react';
 import { useParams } from 'react-router-dom';
 /* eslint-disable import/prefer-default-export */
 import makeRequest from '../../network';
-import { UsersActionsTypeType } from './type';
+import { ActionType, UsersActionsTypeType } from './type';
 
 export const UsersActionsType: UsersActionsTypeType = {
   getUsers: 'GET_USERS',
@@ -16,11 +17,18 @@ export const GetUsersAction = () => async (dispatch: any) => {
   });
 };
 
-export const GetOneUserAction = () => async (dispatch: any) => {
-  const params = useParams();
-  const data = await makeRequest({ url: `/${params.id}` });
+type UserParams = {
+  id: string;
+};
+
+export const GetOneUserAction = (id: any) => async (dispatch: Dispatch<ActionType>) => {
+  const data = await makeRequest({
+    url: `/character/${id}`,
+  });
+  console.log('ff');
+
   dispatch({
     type: UsersActionsType.getOneUser,
-    payload: data.info,
+    payload: data,
   });
 };
